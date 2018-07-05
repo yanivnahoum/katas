@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.stream.Stream;
 
 public class StringCalculator {
-
+    
     public int add(String input) {
         if (input.isEmpty()) {
             return 0;
@@ -23,7 +23,7 @@ public class StringCalculator {
                                 .toArray();
 
         if (negatives.length > 0) {
-            String message = "Negatives not allowed: " + Arrays.toString(negatives);
+            var message = "Negatives not allowed: " + Arrays.toString(negatives);
             throw new IllegalArgumentException(message);
         }
     }
