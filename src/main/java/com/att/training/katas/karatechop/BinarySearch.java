@@ -1,21 +1,19 @@
 package com.att.training.katas.karatechop;
 
-public class BinarySearch {
-    
+class BinarySearch {
+
+    private static final int NOT_FOUND = -1;
+
     private BinarySearch() {
         // No instances allowed
     }
 
-    public static int chop(int element, int[] arr) {
-        if (arr.length == 0) {
-            return -1;
-        }
-        
+    static int chop(int element, int[] arr) {
         int leftIndex = 0;
         int rightIndex = arr.length - 1;
         
         while (leftIndex <= rightIndex) {
-            int midIndex = (leftIndex + rightIndex) >>> 1;
+            int midIndex = getMiddleIndex(leftIndex, rightIndex);
             if (element > arr[midIndex]) {
                 leftIndex = midIndex + 1;
             }
@@ -26,6 +24,10 @@ public class BinarySearch {
                 return midIndex;
             }
         }
-        return -1;
+        return NOT_FOUND;
+    }
+
+    private static int getMiddleIndex(int leftIndex, int rightIndex) {
+        return (leftIndex + rightIndex) >>> 1;
     }
 }
