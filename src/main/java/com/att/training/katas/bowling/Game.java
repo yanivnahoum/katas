@@ -1,16 +1,16 @@
 package com.att.training.katas.bowling;
 
-public class Game {
+class Game {
 
     private static final int ALL_PINS = 10;
+    private final int[] rolls = new int[21];
     private int currentRoll;
-    private int[] rolls = new int[21];
 
-    public void roll(int pins) {
+    void roll(int pins) {
         rolls[currentRoll++] += pins;
     }
 
-    public int score() {
+    int score() {
         int score = 0;
         int frameIndex = 0;
         for (int frame = 0; frame < ALL_PINS; frame++) {

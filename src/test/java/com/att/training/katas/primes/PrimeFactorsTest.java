@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class PrimeFactorsTest {
-    
+
     @Test
     void test1() {
         var factors = PrimeFactors.of(1);
