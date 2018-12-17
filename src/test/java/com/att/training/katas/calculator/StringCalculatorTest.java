@@ -19,7 +19,7 @@ class StringCalculatorTest {
     }
 
     @Test
-    void addShouldReturnZeroOnEmptyString() {
+    void shouldReturnZeroOnEmptyString() {
         int result = calculator.add("");
         assertThat(result).isZero();
     }

@@ -3,9 +3,9 @@ package com.att.training.katas.calculator;
 import java.util.Arrays;
 import java.util.stream.Stream;
 
-public class StringCalculator {
+class StringCalculator {
     
-    public int add(String input) {
+    int add(String input) {
         if (input.isEmpty()) {
             return 0;
         }
@@ -14,6 +14,10 @@ public class StringCalculator {
         return Stream.of(tokens)
                      .mapToInt(Integer::parseInt)
                      .sum();
+    }
+
+    private String[] tokenize(String input) {
+        return input.split("[,\\n]");
     }
 
     private void validate(String[] tokens) {
@@ -26,9 +30,5 @@ public class StringCalculator {
             var message = "Negatives not allowed: " + Arrays.toString(negatives);
             throw new IllegalArgumentException(message);
         }
-    }
-
-    private String[] tokenize(String input) {
-        return input.split("[,\n]");
     }
 }
