@@ -1,6 +1,5 @@
 package com.att.training.katas.calculator;
 
-import java.util.Arrays;
 import java.util.stream.Stream;
 
 class StringCalculator {
@@ -22,12 +21,11 @@ class StringCalculator {
 
     private void validate(String[] tokens) {
         var negatives = Stream.of(tokens)
-                                .mapToInt(Integer::parseInt)
-                                .filter(i -> i < 0)
-                                .toArray();
+                .filter(token -> token.startsWith("-"))
+                .toList();
 
-        if (negatives.length > 0) {
-            var message = "Negatives not allowed: " + Arrays.toString(negatives);
+        if (!negatives.isEmpty()) {
+            var message = "Negatives not allowed: " + negatives;
             throw new IllegalArgumentException(message);
         }
     }

@@ -6,7 +6,7 @@ class StringCalculator {
 
         val tokens = input.split(',', '\n')
         validate(tokens)
-        return tokens.map { it.toInt() }.sum()
+        return tokens.sumOf { it.toInt() }
     }
 
     private fun validate(tokens: List<String>) {

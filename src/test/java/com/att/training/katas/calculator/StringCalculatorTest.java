@@ -27,7 +27,7 @@ class StringCalculatorTest {
     @Test
     void shouldReturnNumberOnSingleNumber() {
         int result = calculator.add("1");
-        assertThat(result).isEqualTo(1);
+        assertThat(result).isOne();
     }
 
     @Test
@@ -54,11 +54,13 @@ class StringCalculatorTest {
                 .isThrownBy(() -> calculator.add("-1,3,-2"))
                 .withMessage("Negatives not allowed: [-1, -2]");
 
+        // Or this:
         assertThatIllegalArgumentException()
                 .isThrownBy(() -> calculator.add("-1,3,-2"))
                 .withMessage("Negatives not allowed: [-1, -2]");
 
 
+        // Or this:
         assertThatThrownBy(() -> calculator.add("-1,3,-2"))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("Negatives not allowed: [-1, -2]");

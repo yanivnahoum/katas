@@ -13,7 +13,6 @@ import java.util.stream.Stream
 class StringCalculatorTest {
 
     private val calculator = StringCalculator()
-
     @Test
     fun `given empty string then return 0`() {
         val result = calculator.add("")
@@ -41,9 +40,10 @@ class StringCalculatorTest {
             TestData(input = "10\n20\n30", expected = 60)
     )
 
+    @Test
     fun `given input with negatives then throw an exception with message containing all negatives`() {
         assertThatIllegalArgumentException().isThrownBy { calculator.add("1,-3,2,-4,-5") }
-                .withMessage("Negatives not allowed: [-3, -4, -5]")
+            .withMessage("Negatives not allowed: [-3, -4, -5]")
     }
 
     data class TestData(val input: String, val expected: Int)
